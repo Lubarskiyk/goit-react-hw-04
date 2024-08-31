@@ -29,7 +29,6 @@ export default function App() {
 
   const handleSearch = async (newQuery) => {
     try {
-
       setPictures([]);
       setError(false);
       setLoading(true);
