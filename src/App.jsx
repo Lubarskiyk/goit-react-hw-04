@@ -12,7 +12,7 @@ import css from "./App.module.css";
 export default function App() {
   const [pictures, setPictures] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState("");
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");
   const [totalPages, setTotalPages] = useState(0);
@@ -39,12 +39,12 @@ export default function App() {
         setPictures(data.results);
         setTotalPages(data.total_pages);
       } else {
-        throw "Error2";
+        throw "noimage";
       }
-    } catch (error) {
-      console.log(error);
-      setError(true);
-    } finally {
+    } catch (e) {
+      console.log(e);
+      e==="noimage"? setError("noimage") : setError("wrong");
+        } finally {
       setLoading(false);
     }
   };
@@ -57,8 +57,8 @@ export default function App() {
       setPictures((prevPictures) => [...prevPictures, ...data.results]);
       setPage(nextPage);
       // eslint-disable-next-line no-unused-vars
-    } catch (error) {
-      setError(true);
+    } catch (e) {
+      setError("wrong");
     } finally {
       setLoading(false);
     }
@@ -95,7 +95,7 @@ export default function App() {
       )}
       {shouldShowLoadMore && <LoadMoreBtn onClick={loadMorePictures} />}
       {loading && <Loader />}
-      {error && <ErrorMessage />}
+      { (error !== "") ?  <ErrorMessage error={error} /> : null}
       <button onClick={scrollToTop} className={css.scrollBtn}>
         <IoArrowUpCircleSharp className={css.reactIcons} />
       </button>
