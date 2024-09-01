@@ -1,10 +1,10 @@
 import { useState, useRef, useEffect } from "react";
-import SearchBar from "./componets/SearchBar/SearchBar.jsx";
-import ImageGallery from "./componets/ImageGallery/ImageGallery.jsx";
-import Loader from "./componets/Loader/Loader.jsx";
-import ErrorMessage from "./componets/ErrorMessage/ErrorMessage.jsx";
-import LoadMoreBtn from "./componets/LoadMoreBtn/LoadMoreBtn.jsx";
-import ImageModal from "./componets/ImageModal/ImageModal.jsx";
+import SearchBar from "./components/SearchBar/SearchBar.jsx";
+import ImageGallery from "./components/ImageGallery/ImageGallery.jsx";
+import Loader from "./components/Loader/Loader.jsx";
+import ErrorMessage from "./components/ErrorMessage/ErrorMessage.jsx";
+import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn.jsx";
+import ImageModal from "./components/ImageModal/ImageModal.jsx";
 import { fetchPicturesWithQuery } from "./image-api.js";
 import { IoArrowUpCircleSharp } from "react-icons/io5";
 import css from "./App.module.css";
